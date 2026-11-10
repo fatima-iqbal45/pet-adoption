@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purrfect Pawpartner | Contact Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nude: { 50: '#FDFBF7', 100: '#FAF6F0', 200: '#F5ECE0', 300: '#EFE3D3', 400: '#D8C6B1', 500: '#C88A6E', 600: '#A96B50', 700: '#6B4E3D', 800: '#3E362E' }
+                    },
+                    fontFamily: { heading: ['"Playfair Display"', 'serif'], body: ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAF6F0; color: #3E362E; font-family: 'Poppins', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+    <div class="bg-nude-800 text-nude-100 text-xs py-1.5 px-4 text-center tracking-wide">
+        <span>University Lab Project | Developer: <strong class="text-nude-300">Fatima Iqbal</strong> | Roll Number: <strong class="text-nude-300">26i3045</strong> | Section: <strong class="text-nude-300">SE-A</strong></span>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-nude-100/95 backdrop-blur-md border-b border-nude-400/40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-nude-500 text-white flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-paw text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading text-xl sm:text-2xl font-bold tracking-tight text-nude-800 block leading-none">Purrfect Pawpartner</span>
+                        <span class="text-xs font-light text-nude-600 tracking-wider uppercase">Find your furbaby</span>
+                    </div>
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-nude-800 hover:text-nude-500 font-medium py-2">Home</a>
+                    <a href="our-pets.html" class="text-nude-800 hover:text-nude-500 font-medium py-2">Our Pets</a>
+                    <a href="how-to-adopt.html" class="text-nude-800 hover:text-nude-500 font-medium py-2">Adoption Process</a>
+                    <a href="contact.html" class="text-nude-500 font-semibold py-2 border-b-2 border-nude-500">Contact Application</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <div class="max-w-3xl mx-auto bg-nude-200 rounded-3xl p-6 sm:p-10 border border-nude-400/60 shadow-sm">
+            <div class="text-center space-y-2 mb-8">
+                <h1 class="text-3xl font-bold text-nude-800">Adoption Application Form</h1>
+                <p class="text-nude-700 text-sm">Please fill out this form to apply for adoption or get in touch with our team.</p>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-nude-800 mb-1">Full Name *</label>
+                        <input type="text" id="cust-name" required placeholder="e.g. Fatima Iqbal" class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-nude-800 mb-1">Email Address *</label>
+                        <input type="email" id="cust-email" required placeholder="fatima@university.edu.pk" class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-nude-800 mb-1">Preferred Pet *</label>
+                    <select required class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500">
+                        <option value="" disabled selected>Select a pet...</option>
+                        <option value="Bingo">Bingo (Pomeranian)</option>
+                        <option value="Dobby">Dobby (Sphynx Cat)</option>
+                        <option value="Max">Max (Golden Retriever)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-nude-800 mb-1">Why do you want to adopt? *</label>
+                    <textarea rows="4" required placeholder="Tell us about your home and pet care experience..." class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-nude-500 hover:bg-nude-600 text-white font-bold py-4 rounded-xl shadow-lg transition">Submit Application</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-nude-200 border-t border-nude-400/50 py-6 text-center text-xs text-nude-600">
+        &copy; 2026 Purrfect Pawpartner. Authored by Fatima Iqbal (26i3045, SE-A).
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            alert("Thank you, " + name + "! Your adoption application has been submitted successfully.");
+        }
+    </script>
+</body>
+</html>

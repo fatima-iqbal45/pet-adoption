@@ -3,615 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purrfect Pawpartner | Pet Adoption</title>
-    <!-- Google Fonts: Playfair Display & Poppins -->
+    <title>Purrfect Pawpartner | Our Pets</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        nude: {
-                            50: '#FDFBF7',
-                            100: '#FAF6F0', // Main background
-                            200: '#F5ECE0', // Secondary background
-                            300: '#EFE3D3', // Card background
-                            400: '#D8C6B1', // Border / subtle highlight
-                            500: '#C88A6E', // Primary Accent (Warm Terracotta/Coral)
-                            600: '#A96B50', // Accent Dark
-                            700: '#6B4E3D', // Muted dark
-                            800: '#3E362E', // Main Text color
-                        }
+                        nude: { 50: '#FDFBF7', 100: '#FAF6F0', 200: '#F5ECE0', 300: '#EFE3D3', 400: '#D8C6B1', 500: '#C88A6E', 600: '#A96B50', 700: '#6B4E3D', 800: '#3E362E' }
                     },
-                    fontFamily: {
-                        heading: ['"Playfair Display"', 'serif'],
-                        body: ['Poppins', 'sans-serif'],
-                    }
+                    fontFamily: { heading: ['"Playfair Display"', 'serif'], body: ['Poppins', 'sans-serif'] }
                 }
             }
         }
     </script>
     <style>
-        /* Fatima Iqbal, 26i3045, SE-A */
-        body {
-            background-color: #FAF6F0;
-            color: #3E362E;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        h1, h2, h3, .font-heading {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FAF6F0;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D8C6B1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #C88A6E;
-        }
-
-        /* Card Hover Animations */
-        .pet-card {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .pet-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 30px -10px rgba(62, 54, 46, 0.15);
-        }
-
-        /* Active Navigation Link */
-        .nav-link.active {
-            color: #C88A6E;
-            font-weight: 600;
-            border-bottom: 2px solid #C88A6E;
-        }
-
-        /* Toast notification animation */
-        @keyframes slideIn {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .toast-animate {
-            animation: slideIn 0.3s ease-out forwards;
-        }
+        body { background-color: #FAF6F0; color: #3E362E; font-family: 'Poppins', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .pet-card { transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .pet-card:hover { transform: translateY(-6px); box-shadow: 0 16px 30px -10px rgba(62, 54, 46, 0.15); }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased">
-
-    <!-- Student Metadata Banner Header -->
     <div class="bg-nude-800 text-nude-100 text-xs py-1.5 px-4 text-center tracking-wide">
         <span>University Lab Project | Developer: <strong class="text-nude-300">Fatima Iqbal</strong> | Roll Number: <strong class="text-nude-300">26i3045</strong> | Section: <strong class="text-nude-300">SE-A</strong></span>
     </div>
 
-    <!-- Sticky Navigation Bar -->
-    <header class="sticky top-0 z-40 bg-nude-100/95 backdrop-blur-md border-b border-nude-400/40 shadow-sm transition-all duration-300">
+    <header class="sticky top-0 z-40 bg-nude-100/95 backdrop-blur-md border-b border-nude-400/40 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo & Brand Name -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchPage('home')">
-                    <div class="w-12 h-12 rounded-full bg-nude-500 text-white flex items-center justify-center shadow-md hover:rotate-12 transition-transform duration-300">
-                        <i class="fa-solid font-bold fa-paw text-2xl"></i>
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-nude-500 text-white flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-paw text-2xl"></i>
                     </div>
                     <div>
                         <span class="font-heading text-xl sm:text-2xl font-bold tracking-tight text-nude-800 block leading-none">Purrfect Pawpartner</span>
                         <span class="text-xs font-light text-nude-600 tracking-wider uppercase">Find your furbaby</span>
                     </div>
-                </div>
-
-                <!-- Desktop Navigation Links -->
+                </a>
                 <nav class="hidden md:flex space-x-8">
-                    <button onclick="switchPage('home')" id="nav-home" class="nav-link text-nude-800 hover:text-nude-500 font-medium py-2 transition-colors">Home</button>
-                    <button onclick="switchPage('our-pets')" id="nav-our-pets" class="nav-link text-nude-800 hover:text-nude-500 font-medium py-2 transition-colors">Our Pets</button>
-                    <button onclick="switchPage('adoption-process')" id="nav-adoption-process" class="nav-link text-nude-800 hover:text-nude-500 font-medium py-2 transition-colors">Adoption Process</button>
-                    <button onclick="switchPage('contact')" id="nav-contact" class="nav-link text-nude-800 hover:text-nude-500 font-medium py-2 transition-colors">Contact Application</button>
+                    <a href="index.html" class="text-nude-800 hover:text-nude-500 font-medium py-2">Home</a>
+                    <a href="our-pets.html" class="text-nude-500 font-semibold py-2 border-b-2 border-nude-500">Our Pets</a>
+                    <a href="how-to-adopt.html" class="text-nude-800 hover:text-nude-500 font-medium py-2">Adoption Process</a>
+                    <a href="contact.html" class="text-nude-800 hover:text-nude-500 font-medium py-2">Contact Application</a>
                 </nav>
-
-                <!-- Mobile Menu Trigger -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-nude-800 p-2 rounded-lg hover:bg-nude-200 focus:outline-none">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
             </div>
-        </div>
-
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-nude-200/95 border-b border-nude-400 px-4 pt-2 pb-4 space-y-2">
-            <button onclick="switchPage('home'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-nude-800 hover:text-nude-500">Home</button>
-            <button onclick="switchPage('our-pets'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-nude-800 hover:text-nude-500">Our Pets</button>
-            <button onclick="switchPage('adoption-process'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-nude-800 hover:text-nude-500">Adoption Process</button>
-            <button onclick="switchPage('contact'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-nude-800 hover:text-nude-500">Contact Application</button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT CONTAINER WITH DYNAMIC PAGES -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <div class="text-center max-w-2xl mx-auto space-y-3">
+            <h1 class="text-3xl sm:text-4xl font-bold text-nude-800">Available Pawpartners</h1>
+            <p class="text-nude-700">Explore our charming selection of dogs, cats, and rabbits waiting to join your family.</p>
+        </div>
 
-        <!-- ================= PAGE 1: HOME ================= -->
-        <section id="page-home" class="space-y-12">
-            <!-- Hero Banner -->
-            <div class="relative bg-nude-300 rounded-3xl p-8 sm:p-12 md:p-16 overflow-hidden border border-nude-400/50 shadow-sm">
-                <div class="grid md:grid-cols-2 gap-8 items-center relative z-10">
-                    <div class="space-y-6 text-left">
-                        <span class="inline-block px-4 py-1.5 bg-nude-500/10 text-nude-600 rounded-full text-xs font-semibold uppercase tracking-widest border border-nude-500/20">
-                            Welcome to Purrfect Pawpartner
-                        </span>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-nude-800">
-                            Find your <span class="text-nude-500 italic">purrfect</span> pawpartner!
-                        </h1>
-                        <p class="text-base sm:text-lg text-nude-700 leading-relaxed max-w-xl">
-                            Meet thousands of different breeds of furbabies looking for loving forever homes. Adopt, nurture, and bring warmth to your home today.
-                        </p>
-                        <div class="pt-2 flex flex-wrap gap-4">
-                            <button onclick="switchPage('our-pets')" class="bg-nude-500 hover:bg-nude-600 text-white font-semibold px-8 py-3.5 rounded-full shadow-lg shadow-nude-500/30 transition-all transform hover:-translate-y-0.5">
-                                Meet The Furbabies <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </button>
-                            <button onclick="scrollToBaselineTable()" class="bg-nude-100 hover:bg-white text-nude-800 font-semibold px-6 py-3.5 rounded-full border border-nude-400 transition-all">
-                                View Registry List
-                            </button>
-                        </div>
-                    </div>
-                    <div class="flex justify-center relative">
-                        <div class="relative w-full max-w-md aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-nude-100">
-                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" alt="Cute Dog Logo Paw Partner" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Original Assignment Baseline Table Component -->
-            <div id="baseline-table-section" class="bg-nude-200 rounded-2xl p-6 sm:p-10 border border-nude-400/60 shadow-sm space-y-6">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-nude-400/50 pb-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Pet 1 -->
+            <div class="pet-card bg-nude-300 rounded-3xl overflow-hidden border border-nude-400/60 shadow-sm flex flex-col justify-between">
+                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Bingo" class="w-full h-56 object-cover">
+                <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
                     <div>
-                        <h2 class="text-2xl sm:text-3xl font-bold text-nude-800">Meet The Cute Furbabies</h2>
-                        <p class="text-xs text-nude-600 mt-1 font-mono">Original Baseline Registry Dataset | Fatima Iqbal (26i3045, SE-A)</p>
+                        <h3 class="text-2xl font-bold text-nude-800">Bingo</h3>
+                        <p class="text-xs text-nude-600 font-medium mt-1">Dog - Pomeranian &bull; 2 yrs</p>
+                        <p class="text-sm text-nude-700 mt-2">Fluffy, lively pomeranian puppy with a bright personality.</p>
+                        <p class="text-lg font-bold text-nude-600 mt-2">$1000</p>
                     </div>
-                    <span class="mt-2 sm:mt-0 text-xs bg-nude-100 text-nude-700 px-3 py-1.5 rounded-md border border-nude-400 font-medium">Core Adoption Registry</span>
-                </div>
-
-                <!-- Custom Styled Table -->
-                <div class="overflow-x-auto rounded-xl border border-nude-400/50 shadow-sm">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-nude-500 text-white font-heading text-base sm:text-lg">
-                                <th class="p-4 border-b border-nude-400">Names</th>
-                                <th class="p-4 border-b border-nude-400">Category and Breed</th>
-                                <th class="p-4 border-b border-nude-400">Adoption Fee</th>
-                                <th class="p-4 border-b border-nude-400 text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-nude-400/30 text-sm sm:text-base">
-                            <tr class="bg-nude-100 hover:bg-nude-300/50 transition-colors">
-                                <td class="p-4 font-semibold text-nude-800">Bingo</td>
-                                <td class="p-4 text-nude-700">Dog - Pomeranian</td>
-                                <td class="p-4 font-bold text-nude-600">$1000</td>
-                                <td class="p-4 text-center">
-                                    <button onclick="adoptAlert('Bingo')" class="bg-nude-500 hover:bg-nude-600 text-white text-xs font-semibold px-4 py-2 rounded-full transition">Adopt Me</button>
-                                </td>
-                            </tr>
-                            <tr class="bg-nude-200 hover:bg-nude-300/50 transition-colors">
-                                <td class="p-4 font-semibold text-nude-800">Dobby</td>
-                                <td class="p-4 text-nude-700">Cat - Sphynx cat</td>
-                                <td class="p-4 font-bold text-nude-600">$4500</td>
-                                <td class="p-4 text-center">
-                                    <button onclick="adoptAlert('Dobby')" class="bg-nude-500 hover:bg-nude-600 text-white text-xs font-semibold px-4 py-2 rounded-full transition">Adopt Me</button>
-                                </td>
-                            </tr>
-                            <tr class="bg-nude-100 hover:bg-nude-300/50 transition-colors">
-                                <td class="p-4 font-semibold text-nude-800">Max</td>
-                                <td class="p-4 text-nude-700">Dog - Golden Retriever</td>
-                                <td class="p-4 font-bold text-nude-600">$578</td>
-                                <td class="p-4 text-center">
-                                    <button onclick="adoptAlert('Max')" class="bg-nude-500 hover:bg-nude-600 text-white text-xs font-semibold px-4 py-2 rounded-full transition">Adopt Me</button>
-                                </td>
-                            </tr>
-                            <tr class="bg-nude-200 hover:bg-nude-300/50 transition-colors">
-                                <td class="p-4 font-semibold text-nude-800">Hiccup</td>
-                                <td class="p-4 text-nude-700">Cat - Black British Shorthair</td>
-                                <td class="p-4 font-bold text-nude-600">$895</td>
-                                <td class="p-4 text-center">
-                                    <button onclick="adoptAlert('Hiccup')" class="bg-nude-500 hover:bg-nude-600 text-white text-xs font-semibold px-4 py-2 rounded-full transition">Adopt Me</button>
-                                </td>
-                            </tr>
-                            <tr class="bg-nude-100 hover:bg-nude-300/50 transition-colors">
-                                <td class="p-4 font-semibold text-nude-800">Cupcake</td>
-                                <td class="p-4 text-nude-700">Cat - Persian</td>
-                                <td class="p-4 font-bold text-nude-600">$2686</td>
-                                <td class="p-4 text-center">
-                                    <button onclick="adoptAlert('Cupcake')" class="bg-nude-500 hover:bg-nude-600 text-white text-xs font-semibold px-4 py-2 rounded-full transition">Adopt Me</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ================= PAGE 2: OUR PETS (our-pets.html) ================= -->
-        <section id="page-our-pets" class="hidden space-y-8">
-            <div class="text-center max-w-2xl mx-auto space-y-3">
-                <h1 class="text-3xl sm:text-4xl font-bold text-nude-800">Available Pawpartners</h1>
-                <p class="text-nude-700">Explore our charming selection of dogs, cats, and rabbits waiting to join your family.</p>
-            </div>
-
-            <!-- Dynamic Filter Controls -->
-            <div class="bg-nude-200 p-4 sm:p-6 rounded-2xl border border-nude-400/50 shadow-sm flex flex-wrap gap-2 justify-center" id="category-filters">
-                <button onclick="filterPets('all')" class="filter-btn bg-nude-500 text-white font-medium px-5 py-2 rounded-full text-sm transition">All Pets</button>
-                <button onclick="filterPets('Dog')" class="filter-btn bg-nude-100 hover:bg-nude-300 text-nude-800 font-medium px-5 py-2 rounded-full text-sm transition">Dogs</button>
-                <button onclick="filterPets('Cat')" class="filter-btn bg-nude-100 hover:bg-nude-300 text-nude-800 font-medium px-5 py-2 rounded-full text-sm transition">Cats</button>
-                <button onclick="filterPets('Rabbit')" class="filter-btn bg-nude-100 hover:bg-nude-300 text-nude-800 font-medium px-5 py-2 rounded-full text-sm transition">Rabbits</button>
-            </div>
-
-            <!-- Pet Grid Container (Cards contain ONLY "Adopt Me" Button) -->
-            <div id="pet-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Dynamically populated via JS -->
-            </div>
-        </section>
-
-
-        <!-- ================= PAGE 3: ADOPTION PROCESS ================= -->
-        <section id="page-adoption-process" class="hidden space-y-8">
-            <div class="text-center max-w-2xl mx-auto space-y-3">
-                <h1 class="text-3xl sm:text-4xl font-bold text-nude-800">How Adoption Works</h1>
-                <p class="text-nude-700">Our step-by-step path to bringing your new companion safely home.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-nude-300 rounded-3xl p-8 border border-nude-400/50 space-y-4 text-center">
-                    <div class="w-16 h-16 bg-nude-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">1</div>
-                    <h3 class="text-xl font-bold text-nude-800">Browse & Choose</h3>
-                    <p class="text-sm text-nude-700">Look through our available dogs, cats, and rabbits to find the companion that matches your heart and home.</p>
-                </div>
-                <div class="bg-nude-300 rounded-3xl p-8 border border-nude-400/50 space-y-4 text-center">
-                    <div class="w-16 h-16 bg-nude-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">2</div>
-                    <h3 class="text-xl font-bold text-nude-800">Submit Application</h3>
-                    <p class="text-sm text-nude-700">Click "Adopt Me" to submit your application details, housing environment, and pet care experience.</p>
-                </div>
-                <div class="bg-nude-300 rounded-3xl p-8 border border-nude-400/50 space-y-4 text-center">
-                    <div class="w-16 h-16 bg-nude-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">3</div>
-                    <h3 class="text-xl font-bold text-nude-800">Welcome Home</h3>
-                    <p class="text-sm text-nude-700">Our lab adoption team reviews your request, conducts a quick check, and arranges for adoption day!</p>
+                    <button onclick="alert('Thank you for your interest in adopting Bingo! Please visit our Contact page to fill out an application.')" class="w-full bg-nude-500 hover:bg-nude-600 text-white font-semibold py-2.5 rounded-full shadow transition">Adopt Me</button>
                 </div>
             </div>
 
-            <div class="text-center pt-4">
-                <button onclick="switchPage('our-pets')" class="bg-nude-500 hover:bg-nude-600 text-white font-bold px-8 py-3.5 rounded-full shadow-md transition">
-                    Explore Available Pets Now
-                </button>
-            </div>
-        </section>
-
-
-        <!-- ================= PAGE 4: CONTACT / APPLICATION FORM ================= -->
-        <section id="page-contact" class="hidden space-y-8">
-            <div class="max-w-3xl mx-auto bg-nude-200 rounded-3xl p-6 sm:p-10 border border-nude-400/60 shadow-sm">
-                <div class="text-center space-y-2 mb-8">
-                    <h1 class="text-3xl font-bold text-nude-800">Adoption Application & Inquiry</h1>
-                    <p class="text-nude-700 text-sm">Please fill out this form to express your interest in adopting or to get in touch with our lab adoption team.</p>
-                </div>
-
-                <form id="adoption-contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium text-nude-800 mb-1">Full Name *</label>
-                            <input type="text" id="contact-name" required placeholder="e.g. Fatima Iqbal" class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-nude-800 mb-1">Email Address *</label>
-                            <input type="email" id="contact-email" required placeholder="fatima@university.edu.pk" class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium text-nude-800 mb-1">Preferred Pet *</label>
-                            <select id="contact-pet-select" required class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500">
-                                <option value="" disabled selected>Select a pet...</option>
-                                <option value="Bingo (Pomeranian)">Bingo - Pomeranian ($1000)</option>
-                                <option value="Dobby (Sphynx Cat)">Dobby - Sphynx Cat ($4500)</option>
-                                <option value="Max (Golden Retriever)">Max - Golden Retriever ($578)</option>
-                                <option value="Hiccup (Black British)">Hiccup - Black British Shorthair ($895)</option>
-                                <option value="Cupcake (Persian Cat)">Cupcake - Persian Cat ($2686)</option>
-                                <option value="Barnaby (Holland Lop)">Barnaby - Holland Lop ($250)</option>
-                                <option value="Thumper (Dwarf Lop)">Thumper - Dwarf Lop ($300)</option>
-                                <option value="General Inquiry">General Inquiry / Other</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-nude-800 mb-1">Phone Number *</label>
-                            <input type="tel" id="contact-phone" required placeholder="+92 300 1234567" class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500">
-                        </div>
-                    </div>
-
+            <!-- Pet 2 -->
+            <div class="pet-card bg-nude-300 rounded-3xl overflow-hidden border border-nude-400/60 shadow-sm flex flex-col justify-between">
+                <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=600&q=80" alt="Dobby" class="w-full h-56 object-cover">
+                <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-nude-800 mb-1">Housing & Experience Message *</label>
-                        <textarea id="contact-message" rows="4" required placeholder="Tell us about your home environment, past pet care experience, and reasons for adoption..." class="w-full bg-nude-100 border border-nude-400 rounded-xl px-4 py-3 text-nude-800 focus:outline-none focus:ring-2 focus:ring-nude-500"></textarea>
+                        <h3 class="text-2xl font-bold text-nude-800">Dobby</h3>
+                        <p class="text-xs text-nude-600 font-medium mt-1">Cat - Sphynx cat &bull; 3 yrs</p>
+                        <p class="text-sm text-nude-700 mt-2">Affectionate hairless Sphynx cat with big loving eyes.</p>
+                        <p class="text-lg font-bold text-nude-600 mt-2">$4500</p>
                     </div>
-
-                    <button type="submit" class="w-full bg-nude-500 hover:bg-nude-600 text-white font-bold py-4 rounded-xl shadow-lg transition duration-200">
-                        Submit Adoption Application
-                    </button>
-                </form>
+                    <button onclick="alert('Thank you for your interest in adopting Dobby! Please visit our Contact page to fill out an application.')" class="w-full bg-nude-500 hover:bg-nude-600 text-white font-semibold py-2.5 rounded-full shadow transition">Adopt Me</button>
+                </div>
             </div>
-        </section>
 
+            <!-- Pet 3 -->
+            <div class="pet-card bg-nude-300 rounded-3xl overflow-hidden border border-nude-400/60 shadow-sm flex flex-col justify-between">
+                <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80" alt="Max" class="w-full h-56 object-cover">
+                <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-nude-800">Max</h3>
+                        <p class="text-xs text-nude-600 font-medium mt-1">Dog - Golden Retriever &bull; 1 yr</p>
+                        <p class="text-sm text-nude-700 mt-2">Playful golden retriever puppy who loves cuddle sessions.</p>
+                        <p class="text-lg font-bold text-nude-600 mt-2">$578</p>
+                    </div>
+                    <button onclick="alert('Thank you for your interest in adopting Max! Please visit our Contact page to fill out an application.')" class="w-full bg-nude-500 hover:bg-nude-600 text-white font-semibold py-2.5 rounded-full shadow transition">Adopt Me</button>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- FOOTER COMPONENT -->
-    <footer class="bg-nude-200 border-t border-nude-400/50 mt-12 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <div class="flex items-center space-x-3 mb-3">
-                    <div class="w-8 h-8 rounded-full bg-nude-500 text-white flex items-center justify-center">
-                        <i class="fa-solid fa-paw text-sm"></i>
-                    </div>
-                    <span class="font-heading text-lg font-bold text-nude-800">Purrfect Pawpartner</span>
-                </div>
-                <p class="text-xs text-nude-700 leading-relaxed">
-                    A dedicated pet adoption platform built with love and luxury nude beige styling for university lab assignments.
-                </p>
-            </div>
-
-            <div>
-                <h4 class="font-heading text-base font-bold text-nude-800 mb-3">Student Information</h4>
-                <ul class="text-xs text-nude-700 space-y-1.5 font-mono">
-                    <li>Name: <strong>Fatima Iqbal</strong></li>
-                    <li>Roll Number: <strong>26i3045</strong></li>
-                    <li>Section: <strong>SE-A</strong></li>
-                    <li>Course: Web Engineering Lab</li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="font-heading text-base font-bold text-nude-800 mb-3">Quick Links</h4>
-                <div class="flex flex-col space-y-1.5 text-xs text-nude-700">
-                    <button onclick="switchPage('home')" class="text-left hover:text-nude-500">Home Page</button>
-                    <button onclick="switchPage('our-pets')" class="text-left hover:text-nude-500">Browse Available Pets</button>
-                    <button onclick="switchPage('contact')" class="text-left hover:text-nude-500">Adoption Form</button>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-nude-400/40 mt-8 pt-4 text-center text-xs text-nude-600">
-            &copy; 2026 Purrfect Pawpartner. Authored by Fatima Iqbal (26i3045, SE-A).
-        </div>
+    <footer class="bg-nude-200 border-t border-nude-400/50 py-6 text-center text-xs text-nude-600">
+        &copy; 2026 Purrfect Pawpartner. Authored by Fatima Iqbal (26i3045, SE-A).
     </footer>
-
-    <!-- Interactive Toast Notification Container -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
-
-    <!-- Dynamic JavaScript Logic -->
-    <script>
-        /* Fatima Iqbal, 26i3045, SE-A */
-
-        // Master Data Array for Pets
-        const petData = [
-            {
-                id: 1,
-                name: "Bingo",
-                category: "Dog",
-                breed: "Pomeranian",
-                gender: "Male",
-                age: "2 yrs",
-                price: 1000,
-                image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80",
-                description: "Fluffy, lively pomeranian puppy with a bright personality and thick cream coat."
-            },
-            {
-                id: 2,
-                name: "Dobby",
-                category: "Cat",
-                breed: "Sphynx cat",
-                gender: "Male",
-                age: "3 yrs",
-                price: 4500,
-                image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=600&q=80",
-                description: "Affectionate hairless Sphynx cat with charming warm energy and big loving eyes."
-            },
-            {
-                id: 3,
-                name: "Max",
-                category: "Dog",
-                breed: "Golden Retriever",
-                gender: "Male",
-                age: "1 yr",
-                price: 578,
-                image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80",
-                description: "Playful golden retriever puppy who loves retrieving balls and cuddle sessions."
-            },
-            {
-                id: 4,
-                name: "Hiccup",
-                category: "Cat",
-                breed: "Black British Shorthair",
-                gender: "Male",
-                age: "2 yrs",
-                price: 895,
-                image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80",
-                description: "Sleek black cat with calm demeanor, plush coat, and copper-colored gaze."
-            },
-            {
-                id: 5,
-                name: "Cupcake",
-                category: "Cat",
-                breed: "Persian",
-                gender: "Female",
-                age: "4 yrs",
-                price: 2686,
-                image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=80",
-                description: "Gentle white Persian cat with majestic fur and a relaxed, soothing personality."
-            },
-            {
-                id: 6,
-                name: "Barnaby",
-                category: "Rabbit",
-                breed: "Holland Lop",
-                gender: "Male",
-                age: "1 yr",
-                price: 250,
-                image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=600&q=80",
-                description: "Adorable fluffy bunny with floppy ears and a love for fresh carrots."
-            },
-            {
-                id: 7,
-                name: "Thumper",
-                category: "Rabbit",
-                breed: "Dwarf Lop",
-                gender: "Female",
-                age: "1.5 yrs",
-                price: 300,
-                image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=600&q=80",
-                description: "Sweet dwarf rabbit with soft grey fur and a curious, friendly nature."
-            }
-        ];
-
-        let currentFilter = 'all';
-
-        // Initialize Page on Load
-        window.addEventListener('DOMContentLoaded', () => {
-            renderPetGrid(petData);
-            switchPage('home'); // Initial View
-        });
-
-        // Navigation Controller
-        function switchPage(pageId) {
-            const pages = ['home', 'our-pets', 'adoption-process', 'contact'];
-            pages.forEach(p => {
-                const pageEl = document.getElementById(`page-${p}`);
-                const navEl = document.getElementById(`nav-${p}`);
-                if (pageEl) pageEl.classList.add('hidden');
-                if (navEl) navEl.classList.remove('active');
-            });
-
-            const activePage = document.getElementById(`page-${pageId}`);
-            const activeNav = document.getElementById(`nav-${pageId}`);
-            if (activePage) activePage.classList.remove('hidden');
-            if (activeNav) activeNav.classList.add('active');
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Render Pet Cards Grid (Our Pets Page) - Contains ONLY "Adopt Me" button
-        function renderPetGrid(items) {
-            const container = document.getElementById('pet-grid');
-            container.innerHTML = '';
-
-            items.forEach(pet => {
-                const cardHtml = `
-                    <div class="pet-card bg-nude-300 rounded-3xl overflow-hidden border border-nude-400/60 shadow-sm flex flex-col justify-between">
-                        <div class="relative h-60 overflow-hidden">
-                            <img src="${pet.image}" alt="${pet.name}" class="w-full h-full object-cover transform hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x400/EFE3D3/3E362E?text=${pet.name}'">
-                            <span class="absolute top-4 right-4 bg-nude-100/90 backdrop-blur-md text-nude-800 text-xs font-bold px-3 py-1 rounded-full shadow border border-nude-400">
-                                ${pet.category}
-                            </span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                            <div>
-                                <div class="flex justify-between items-baseline">
-                                    <h3 class="text-2xl font-bold text-nude-800">${pet.name}</h3>
-                                    <span class="text-sm font-semibold text-nude-600 font-mono">${pet.gender}</span>
-                                </div>
-                                <p class="text-xs text-nude-600 font-medium mt-1">Breed: ${pet.breed} &bull; Age: ${pet.age}</p>
-                                <p class="text-sm text-nude-700 mt-3 leading-relaxed">${pet.description}</p>
-                            </div>
-                            <div class="pt-2">
-                                <button onclick="adoptAlert('${pet.name}')" class="w-full bg-nude-500 hover:bg-nude-600 text-white font-semibold py-3 rounded-xl text-sm transition shadow-sm">
-                                    Adopt Me
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += cardHtml;
-            });
-        }
-
-        // Filtering Logic
-        function filterPets(category) {
-            currentFilter = category;
-            
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => {
-                if (btn.innerText.toLowerCase().includes(category.toLowerCase()) || (category === 'all' && btn.innerText.includes('All'))) {
-                    btn.className = 'filter-btn bg-nude-500 text-white font-medium px-5 py-2 rounded-full text-sm transition';
-                } else {
-                    btn.className = 'filter-btn bg-nude-100 hover:bg-nude-300 text-nude-800 font-medium px-5 py-2 rounded-full text-sm transition';
-                }
-            });
-
-            if (category === 'all') {
-                renderPetGrid(petData);
-            } else {
-                const filtered = petData.filter(p => p.category.toLowerCase() === category.toLowerCase());
-                renderPetGrid(filtered);
-            }
-        }
-
-        // "Adopt Me" Popup Alert Function
-        function adoptAlert(petName) {
-            window.alert("Thank you for your interest in adopting! Please visit our Contact page to fill out an application.");
-            switchPage('contact');
-            const selectEl = document.getElementById('contact-pet-select');
-            if (selectEl) {
-                for (let i = 0; i < selectEl.options.length; i++) {
-                    if (selectEl.options[i].value.startsWith(petName)) {
-                        selectEl.selectedIndex = i;
-                        break;
-                    }
-                }
-            }
-        }
-
-        // Contact Form Submission
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('contact-name').value;
-            const pet = document.getElementById('contact-pet-select').value;
-            
-            showToast(`Thank you ${name}! Your application for ${pet || 'adoption'} was submitted.`);
-            document.getElementById('adoption-contact-form').reset();
-        }
-
-        // Helper: Scroll to table
-        function scrollToBaselineTable() {
-            document.getElementById('baseline-table-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Custom Toast Notification System
-        function showToast(message) {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'toast-animate bg-nude-800 text-nude-100 text-xs sm:text-sm px-5 py-3 rounded-2xl shadow-xl flex items-center space-x-3 pointer-events-auto border border-nude-500/40';
-            toast.innerHTML = `
-                <i class="fa-solid fa-circle-check text-nude-500 text-base"></i>
-                <span>${message}</span>
-            `;
-            container.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transition = 'opacity 0.4s ease';
-                setTimeout(() => toast.remove(), 400);
-            }, 3000);
-        }
-    </script>
 </body>
 </html>
